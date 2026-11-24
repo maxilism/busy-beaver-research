@@ -2,9 +2,11 @@
 
 maxilism
 
-For #724, the blank run reaches a checkpoint with counters $(2,4)$. If we start the same return map at $(542,4)$, the second counter grows through $4,13,40,121,364$ while the first decreases at each update by the old value of the second. After four updates the counters are $(364,364)$ and the machine halts. The two starts agree in both counters modulo 6. We show that every fixed modulus admits examples like this, even if one also specifies an arbitrarily narrow interval for the ratio of the counters.
+For #724, the blank run reaches a checkpoint with counters $(2,4)$. If we start the same return map at $(542,4)$, the second counter grows through $4,13,40,121,364$ while the first decreases at each update by the old value of the second. After four updates the counters are $(364,364)$ and the machine halts. The two starts agree in both counters modulo 6. More generally, fix a checkpoint $(u,v)$ on the blank run with $u,v>0$. For every modulus $m\ge1$ there are halting starts $(u',v')\equiv(u,v)\pmod m$ with $u'/(u'+v')$ arbitrarily close to $u/(u+v)$.
 
 The machines are **#184 and #724** in [Dos Santos et al.'s classification, Problem 4](https://google-deepmind.github.io/cryptids/BusyBeaver/BB6/Hardness/). A *checkpoint* is a tape configuration in the two-counter family at which the published calculation resumes. A *separator* contains every checkpoint visited from blank and no checkpoint from which the machine eventually halts. An inductive invariant certifying blank nonhalting would give such a separator; we do not require the separator itself to be closed under updates.
+
+A set of counter pairs is *semilinear* if it is a finite union of sets $b+\mathbb N v_1+\cdots+\mathbb N v_k$ with $b,v_i\in\mathbb N^2$. Equivalently, it is definable in Presburger arithmetic.
 
 **Theorem.** For either machine there is no separator on the two counters given by a finite Boolean combination of real polynomial sign tests and congruence tests to fixed moduli. In particular, no semilinear separator exists. For #184 there is no semilinear separator even if one samples the blank orbit only at changes of comparison sign. The blank halting status of both machines remains open.
 
@@ -74,7 +76,7 @@ This argument also covers the literal phase-labelled return maps. The coordinate
 
 ## Sampling only at changes of sign: the additional #184 obstruction
 
-For #184 alone consider an *era*: make consecutive updates on one branch until the comparison changes or the machine halts. A test imposed only at the starts of eras has fewer obligations. We show that even these starts admit no semilinear separator. A semilinear set is a finite union of translates of finitely generated additive submonoids of the integer grid; equivalently it is definable in Presburger arithmetic.
+An *era* consists of consecutive updates on one branch until the comparison changes or the machine halts. Here a separator must contain every era start on the blank run and exclude every checkpoint that leads to a halt.
 
 Use the even and odd widths $e=2u+2$ and $o=2v+1$. The halt differences are $e-o=1,3$. During a run, let $M$ initially be the larger width and $m$ the smaller; after $h$ updates their values in those original roles are
 

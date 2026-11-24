@@ -44,7 +44,7 @@ with $0\le c'-c^*\le7$, $c'\le(S+9)/2$ and $\Delta\le9$. Hence $\tau+\Phi(S',c')
 
 ## Lower bound
 
-For the lower bound, partition the history backwards while $10^8+7200\le X\le 2H+1258$. A balanced input has $m\ge S/50$ and can be taken alone. If the last input is unbalanced, take its maximal run with the same small counter, together with its entrance from balanced inputs. The table gives the following bounds for a group starting at $z\ge10^8$, with total size increment $D$:
+Under the capture hypothesis the run reaches $A(1,H)$ at size $2H+1$. After 306 more nonhalting macros, it halts on row (d) at input size $2H+1258$. Partition the history backwards while $10^8+7200\le X\le 2H+1258$. A balanced input has $m\ge S/50$ and can be taken alone. If the last input is unbalanced, take its maximal run with the same small counter, together with its entrance from balanced inputs. The table gives the following bounds for a group starting at $z\ge10^8$, with total size increment $D$:
 
 | Group | Maximum $D$ | Minimum raw cost |
 |:---|---:|---:|
@@ -54,7 +54,7 @@ For the lower bound, partition the history backwards while $10^8+7200\le X\le 2H
 
 Indeed, small $c$ grows by more than a factor $3/2$ at each step and stays below $H+629$, giving at most 792 inputs. Entry must be by (e) near $a=c$, or by (i),(j) with $(S-3a)/2\le c'<(S+9)/50$. Either gives $m\ge.315S$ at entry. Small $a$ can reset once by (h), then triples or more each step, giving at most 294 inputs. A lower move entering this regime has $a'=S-3c-k$ with $k=2$ or 4, so $c\ge S/5$. For entry by (h), either its own $a\ge S/5$ or the lower move immediately preceding it had $c\ge S/5$ at its input (it had to produce that even $a$). Attach the one or two balanced inputs needed for this cost. The two unbalanced types cannot be consecutive: small $c$ leaves $a'=S-3c-k>S'/50$, and small $a$ leaves $c'\ge(S-3a)/2>S'/50$. Thus the groups are disjoint and the last 800 inputs, if needed, stay above $10^8$.
 
-Each line pays at least $D(z+D)^2/25000$, checked at the maximum $D$ and minimum $z$. Since $3D(z+D)^2\ge(z+D)^3-z^3$, summing gives a lower bound $[X^3-(10^8+7200)^3]/75000$. At arrival $X=2H+1$. The final chain takes 306 nonhalting macros before a (d) halt at input size $2H+1258$. Substitution in the lower and upper bounds gives
+Each line pays at least $D(z+D)^2/25000$, checked at the maximum $D$ and minimum $z$. Since $3D(z+D)^2\ge(z+D)^3-z^3$, summing gives a lower bound $[X^3-(10^8+7200)^3]/75000$. Using the arrival size in the lower bound and the final input size in the upper bound gives
 $$
 1.0522\times10^{414}<T_{758}<9.1341\times10^{416}.
 $$

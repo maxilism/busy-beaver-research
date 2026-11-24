@@ -38,7 +38,7 @@ Set
 $$
 H=\frac{3^{307}-8282708212}{13959275},\qquad N=8{,}000{,}000,\qquad L_0=1+2(H-N).
 $$
-The reported halting interval, often called a wall, comprises all $A(1,c)$ with $H-N\le c\le H-3{,}403{,}055$. Its 4,596,946 integer starting values reach $A(1,H)$ by section returns. Starting at $A(1,H)$ itself gives 306 nonhalting macros and then (d).
+The reported halting interval, often called a wall, comprises all $A(1,c)$ with $H-N\le c\le H-3{,}403{,}055$. At the lower endpoint the size is $S=L_0$. For a start below this level, the first crossing is the first macro output with $S\ge L_0$. All 4,596,946 starting values in the interval reach $A(1,H)$ by section returns. Starting at $A(1,H)$ itself gives 306 nonhalting macros and then (d).
 
 Here is the finite test. For $0\le d\le 2N$ start from $A(1,H-d)$, run to the next (h) or halt, and record in $v[d]$ the increase in $c$ at that return, or zero for a halt. One can accelerate a run of $k$ consecutive (j)'s using $a_k=3^k(a+1)-1$ and $S_k=S+4k$. A proposed $k\ge1$ is checked by the last guard $3^k(a+1)\le S+4k-1$ and failure of the next guard. All counter and guard calculations in the sweep used checked integer arithmetic. A 5,000-macro limit would abort a trial and no such abort occurred.
 

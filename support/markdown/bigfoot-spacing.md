@@ -2,7 +2,7 @@
 
 maxilism
 
-At its 49th four-sweep checkpoint after initialization, Bigfoot has reserve 27 and size $y=3021335427802676475075229$, and it gains 11 units of reserve over the next 14 blocks. Increase $y$ by $535992208665470815$, less than $1.775\times10^{-7}$ of its value, and leave the reserve at 27. The new configuration loses two units in every block until it attempts its 28th loss on sweep 56 and halts. Only the first of these two legal configurations is known to occur on the blank run.
+At its 49th four-sweep checkpoint after initialization, Bigfoot has reserve 27 and size $y=3021335427802676475075229$, and it gains 11 units of reserve over the next 14 blocks. Increase $y$ by $535992208665470815$, less than $1.775\times10^{-7}$ of its value, and leave the reserve at 27. The new configuration loses two units in every block until it attempts its 28th loss on sweep 56 and halts. The four-sweep checkpoint sizes on the blank run increase strictly. The perturbed size falls between the 49th and 50th, so it never occurs at one of these checkpoints.
 
 How large an interval of starting sizes can miss a prescribed word of gains and losses? Specifying $L$ exact rows of Matthew House's four-sweep map gives one congruence class modulo $81^L$. Specifying the reserve changes instead leaves choices of row. For six of the seven possible changes, these choices cut the maximum gap by more than any fixed power of $L$.
 
@@ -10,7 +10,7 @@ How large an interval of starting sizes can miss a prescribed word of gains and 
 
 The BB(3,3) holdout Bigfoot has table `1RB2RA1LC_2LC1RB2RB_---2LA1LA`, with 7-state binary compilation `0RB1RB_1LC0RA_1RE1LF_1LF1RE_0RD1RD_1LG0LG_---1LB`. We use [S. Ligocki's sweep rules and House's four-sweep reduction](https://www.sligocki.com/2023/10/16/bb-3-3-is-hard.html#alternative-representation), with [House's even-size coordinate](https://github.com/sligocki/sligocki.github.io/issues/8#issuecomment-1773177231). The checkpoint is $C(h,y)=A(h,4y+1,2)$ for nonnegative integers $h,y$. Here $A(h,b,c)$ denotes the tape $(12)^h(11)^b$ to the left of the head boundary and $(11)^c$ to its right, on a blank background, with state $A$ scanning the cell immediately to the left of the boundary. The blank run first reaches $C(2,0)$ after 69 ternary steps. The same checkpoint calculation applies to other starting tapes in the [binary compilation](https://github.com/sligocki/sligocki.github.io/issues/8#issuecomment-2140920663).
 
-Put $p=256$, $q=81$ and let $G$ take a size to the next size after four sweeps. On row $r=y\bmod q$ one has $qG(y)=py+e_r$. The row determines all four changes to $h$. We may record changes after the reserve becomes negative by continuing the arithmetic map. On the actual machine the first attempted loss from zero halts the run.
+Put $p=256$, $q=81$ and let $G$ take a size to the next size after four sweeps. On row $r=y\bmod q$ one has $qG(y)=py+e_r$ with $63\le e_r\le259$, so $G(y)>y$. The row determines all four changes to $h$. We may record changes after the reserve becomes negative by continuing the arithmetic map. On the actual machine the first attempted loss from zero halts the run.
 
 **Gap theorem.** For every $A>0$ there is a constant $C_A$ with the following property. For every $L\ge1$ and every word of length $L$ over $\{-2,-1,0,1,2,3\}$, every interval of $\lceil C_A q^L/L^A\rceil$ consecutive nonnegative starting sizes contains a size giving that word of net reserve changes in the arithmetic map. The same assertion holds if one asks for the indicated *four individual changes* at each letter. For each net change the table gives two selected rows as alternatives.
 
@@ -66,7 +66,7 @@ The proof for all $A$ supplies no effective onset. An elementary argument gives 
 
 ## Consequence for a safety interval along the blank run
 
-Suppose that at arbitrarily late reached blocks $i$ an argument asserts safety for **every** size in $[y_i,(1+\delta)y_i]$ at the actual reserve $h_i$, with fixed $\delta>0$. A word of $L=\lfloor h_i/2\rfloor+1$ worst blocks would halt one of these starts. Hence $\delta y_i=O_A(q^L/L^A)$. The offsets are between 63 and 259, so $y_i=\Theta(\lambda^i)$ by summing the affine recurrence from 0. Even the bound with $A=0$ gives $L\gg i$. Taking logarithms and then taking $A$ arbitrarily large yields the necessary condition
+Suppose that at arbitrarily late reached blocks $i$ an argument asserts safety for **every** size in $[y_i,(1+\delta)y_i]$ at the actual reserve $h_i$, with fixed $\delta>0$. A word of $L=\lfloor h_i/2\rfloor+1$ worst blocks would halt one of these starts. Hence $\delta y_i=O_A(q^L/L^A)$. Summing the affine recurrence from $y_0=0$ gives $y_i=\Theta(\lambda^i)$. Even the bound with $A=0$ gives $L\gg i$. Taking logarithms and then taking $A$ arbitrarily large yields the necessary condition
 $$
 \frac{h_i-2 i\log_{81}(256/81)}{\log i}\longrightarrow+\infty
 $$

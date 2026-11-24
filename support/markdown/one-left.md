@@ -74,7 +74,7 @@ $$
  \ \le\ d k_0+(1+d)[n+2+(1+2p)H]+H.
 $$
 
-If previous original siblings exhausted with work $W$, the next starts at $k_0\le n+W$. Write $W'$ for total work through this sibling, possibly the last one because of a halt. With $a=\max(2,n-1)$, $c=2n^2+n$, we get the single recurrence
+In the blank forest and in every edge forest, the original markers have initial ages at most $n$. If earlier siblings exhaust with total work $W$, the edge advances by $W$, so the next sibling starts at age $k_0\le n+W$. Write $W'$ for total work through this sibling, possibly the last one because of a halt. With $a=\max(2,n-1)$, $c=2n^2+n$, we get the single recurrence
 
 $$
  W'\le(1+d)W+dn+(1+d)[n+2+(1+2p)H]+H\le aW+cH. \tag{3}
