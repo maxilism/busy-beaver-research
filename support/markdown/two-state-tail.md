@@ -1,12 +1,12 @@
-# A quadratic time bound for a two-state Turing machine on finite input
+# Linear and quadratic running times for two-state Turing machines
 
 maxilism
 
 24 November 2026
 
-Let a deterministic machine have two working states, a two-way binary tape, and a one-cell move left or right at each nonhalting step. Include the halting instruction in the step count. Suppose the initial head and every nonblank cell lie in an interval of length $L\ge1$. **If the machine halts, the initial interval and the entire head trajectory fit in $W=6L+30$ cells, and it halts within $2W^2+3$ steps.** The order $L^2$ is attained on a family of finite inputs to a single table.
+Let a deterministic machine have two working states, a two-way binary tape, and a one-cell move left or right at each nonhalting step. Count the halting instruction. Suppose an interval of length $L\ge1$ contains the initial head and all nonblank cells. **On a halting run, this interval and the head trajectory fit in $W=2L+12$ cells, and the machine takes at most $2W^2+3$ steps.** Every table takes $O(L)$ steps on halting inputs except for one pattern of nonhalting instructions, up to reflection and renaming states and symbols. That pattern attains quadratic time for either choice of blank.
 
-Finite-input decidability is classical. See [Pavlotskaya (1973)](https://doi.org/10.1007/BF01163965) and [Kudlek, *Small deterministic Turing machines* (1996)](https://doi.org/10.1016/S0304-3975(96)00078-3). [Neary and Woods, §3.4](https://arxiv.org/abs/1110.2230), credit K. Wagner (*Elektronische Informationsverarbeitung und Kybernetik* **9**, 1973, 423–431) with an asymptotic linear space bound. We give explicit constants on an ordinary one-dimensional tape. They allow composition with a five-state machine running from blank.
+Finite-input decidability is classical. See [Pavlotskaya (1973)](https://doi.org/10.1007/BF01163965) and [Kudlek, *Small deterministic Turing machines* (1996)](https://doi.org/10.1016/S0304-3975(96)00078-3). [Neary and Woods, §3.4](https://arxiv.org/abs/1110.2230) credit K. Wagner (*Elektronische Informationsverarbeitung und Kybernetik* **9**, 1973, 423–431) with an asymptotic linear space bound.
 
 ## Which state graphs need a time estimate?
 
@@ -38,15 +38,9 @@ If $w\ne a$, attempting a left macro just after a right one halts on the just-wr
 * If $a=v$, the quantity $p+\#u$ never increases: a right move consumes a $u$ and a left jump creates at most two. Thus $p\le r+N$.
 * If $a=u,z=v$, the virgin $v$ at $r+1$ cannot become $u$ before the head has crossed it, since its $D$-write is $v$ and $A$ can reach it only from the right. A right crossing requires $u$.
 * If $a=u,z=u,y=u$, every $u$ is permanent. At a first arrival at $r+3$ the two preceding cells are $u$ since both were used for right moves. A left jump converts the virgin $v$ to $u$; three right moves then meet the next virgin $v$ with the same two-cell suffix, giving infinite drift.
-* If $a=u,z=u,y=v$, take the rightmost cell in the following four-cell window to be $p$, with brackets marking the head in state $D$. A left jump acts by
+* If $a=u,z=u,y=v$, a successful left pair at $p$ swaps $uv$ to $vu$ and lands at $p-2$. The next left attempt starts there or at the $v$ just written at $p-1$. Thus the starting positions of left attempts decrease strictly for either choice of blank. With blank $v$ the initial right scan ends by $r+1$.
 
-  $$
-  c_1\;c_2\;u\;[D:v] \quad\longmapsto\quad c_1\;[D:c_2]\;v\;u .
-  $$
-
-  This pushes one of at most $N$ ordered $u$-particles one cell right. If $c_1=c_2=v$, the next left test fails. Thus on every nonlast push there is an earlier particle at $p-2$ or $p-3$; the pushed particle finishes at most three cells beyond its predecessor. Particle 1 makes no nonlast push. By induction particle $i$ stays at or below $r+3(i-1)$ before the last push. The last push adds at most one. Every right move starts at a particle, so $p\le r+3N+2$.
-
-A common interval, allowing the intermediate test and a final halt move, is $[l-N-5,r+3N+5]$. Its width $5N+10$ is less than $6L+30$.
+Allowing the intermediate test and the final halt move, the run fits in $[l-N-5,r+5]$ for blank $u$ and $[l-5,r+N+5]$ for blank $v$. Both intervals have width $2N+10\le W$.
 
 ## Time in the mixed component
 
@@ -56,7 +50,7 @@ $$
  S+2P=\delta+4P,\qquad \delta=S-2P.
 $$
 
-For $w\ne a$ the two monotone legs cost at most $2(W-1)$. For $w=a=u$, right moves leave the tape alone. If the left rewrite $uv\mapsto yz$ is the identity, no checkpoint position repeats on a halter. If it gives $uu$ or $vv$, one letter count decreases per pair, so $P\le W$. If it gives $vu$, the sum of positions of the $u$'s increases by one per pair, so $P\le W(W-1)/2$. In all cases time is at most $2W^2$, using $|\delta|\le W-1$ (a successful left pair requires $W\ge3$).
+For $w\ne a$ the two monotone legs cost at most $2(W-1)$. For $w=a=u$, right moves leave the tape alone. With the identity rewrite no checkpoint position repeats on a halting run. Rewriting $uv$ as $uu$ or $vv$ decreases one letter count per pair. For the swap $uv\mapsto vu$ the left attempts occur at strictly decreasing positions. In each case $P\le W$, so $\delta+4P<5W$.
 
 For $w=a=v$, each right move creates one $v$ and each left pair removes a fixed number $k\in\{0,1,2\}$ of them. If $k\le1$, their change in number satisfies $\Delta\#v-\delta=(2-k)P$. Substitution in $\delta+4P$ gives at most $7W-3\le2W^2$ for $W\ge3$. For $k=2$ use the potential
 
@@ -66,8 +60,8 @@ $$
 
 A right move changes it by $(p+1)^2-p^2-2p=1$. A left pair erasing $v$'s at $p-1,p$ changes it by $(p-2)^2-p^2+2(p-1)+2p=2$. Its increase equals the elapsed time, and its range has length at most $(W-1)^2+W(W-1)<2W^2$. Allow one step from an initial $A$ and two for the final failed pair. This proves the clock.
 
-**Quadratic example.** Take `1RA0LB_1RZ0LA`, with row order $A,B$, column order $0,1$, and $Z$ halt. Start in $A$ at the first cell of $0\,1^j\,0\,1$ on a zero background. For $0\le i\le j$ the machine reaches $A$ at $-i$ with just the ones in $[i+1,j]$ and at $j+2$. For $i<j$, it takes $2i+1$ right moves through position $i$, then $i+1$ left pairs erase the resulting even block and land at $-i-1$. At $i=j$ it takes $2j+2$ right moves, $j+1$ successful left pairs and a failed pair. The total is $\sum_{i<j,\ i\ge0}(4i+3)+4j+6=2j^2+5j+6$ steps on input width $j+3$.
+**The exceptional table.** Only $w=a=v$ with $vv\mapsto uu$ can exceed linear time. Take `1RA0LB_1RZ0LA`, with looping state $A$, guard state $B$, columns $0,1$, and $Z$ halt. Start in $A$ at the first cell of $0\,1^j\,0\,1$ on a zero background. For $0\le i\le j$ the machine reaches $A$ at $-i$ with just the ones in $[i+1,j]$ and at $j+2$. For $i<j$, it takes $2i+1$ right moves through position $i$ and $i+1$ left pairs to erase the resulting even block and land at $-i-1$. At $i=j$ it makes $2j+2$ right moves, $j+1$ successful left pairs and a failed pair. This gives $2j^2+5j+6$ steps on width $j+3$. For a background of ones, copy the same initial symbols throughout the visited interval. Its width is $O(j)$ by the space bound, and every step is preserved.
 
-**Seven-state application.** Suppose five states contain the start and the other two form a closed set: the four entries there may halt or stay within the pair. Replace each entrance to the pair by a halt. The resulting five-state blank machine agrees until its halt or that entrance, which on a halting run occurs within $B=47{,}176{,}870$ steps by the [BB(5) theorem](https://arxiv.org/abs/2509.12337). At entrance the original head and all nonblank cells fit in $B+1$ cells. Applying the clock with $W=6(B+1)+30=283{,}061{,}256$ gives at most **160,247,349,343,771,945 steps** including the prelude.
+**Seven-state application.** Suppose five states contain the start and every instruction in the other two either halts or stays within that pair. Replace each entrance to the pair by a halt. The resulting five-state blank machine agrees until its halt or that entrance, which on a halting run occurs within $B=47{,}176{,}870$ steps by the [BB(5) theorem](https://arxiv.org/abs/2509.12337). At entrance the head and all nonblank cells fit in $B+1$ cells. Taking $W=2(B+1)+12=94{,}353{,}754$ gives at most $B+2W^2+3=$ **17,805,261,834,961,905 steps** including the prelude.
 
 © 2026 maxilism. Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).

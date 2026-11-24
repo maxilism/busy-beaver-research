@@ -21,7 +21,7 @@ The [results](results/) use BB(n,k) for n states and k symbols, or BB(n) for bin
 
 | Paper | Result |
 |---|---|
-| [Arithmetic invariants for #184 and #724](results/bb-6-2/six-state-invariants.pdf) | Suppose a test on the two counters accepts every checkpoint on the blank run. If the test is built from finitely many polynomial inequalities and congruences modulo fixed integers, it also accepts a checkpoint that leads to a halt. |
+| [Arithmetic invariants for #184 and #724](results/bb-6-2/six-state-invariants.pdf) | Suppose a test on the two counters accepts every checkpoint on the blank run. If the test is built from finitely many polynomial inequalities and congruences modulo fixed integers, it also accepts a checkpoint that leads to a halt. The same holds for finite Boolean combinations of context-free languages on marked tapes. |
 | [Return rules for #623](results/bb-6-2/six-state-623.pdf) | At each sampled return from blank, a halting inner branch requires the two counters to lie within a logarithmic distance of each other. |
 | [Halting inputs for Antihydra](results/bb-6-2/antihydra.pdf) | At fixed reserve, every arithmetic progression of sizes contains a subprogression of halting inputs, with an explicit bound on the number of return-map attempts. |
 
@@ -43,7 +43,7 @@ The [results](results/) use BB(n,k) for n states and k symbols, or BB(n) for bin
 | Paper | Result |
 |---|---|
 | [Blank running time with one left instruction](results/families/one-left.pdf) | With $n$ states and at most one left-moving nonhalting instruction, a binary machine that halts from blank takes at most $2^{O(n^2\log(n+2))}$ steps. |
-| [Two-state machines on finite input](results/families/two-state-tail.pdf) | For a halting two-state binary machine, running time is at most quadratic in the width of the input. The bound also applies to two-state tails of larger machines. |
+| [Two-state machines on finite input](results/families/two-state-tail.pdf) | Up to reflection and renaming, one transition pattern attains quadratic time in the input width. Every other table takes linear time or less on halting inputs. |
 
 [How to reproduce the checks](support/markdown/verification.md) · [Markdown sources](support/markdown/)
 

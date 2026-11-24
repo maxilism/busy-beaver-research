@@ -48,7 +48,11 @@ Keep `E0` undefined and replace exactly one of the other 13 entries by a *differ
 | `G1` | 14 | 22 | 5 | 0 |
 | **Total** | | **176** | **172** | **3** |
 
-Of the 176 halters, 175 reach `E0` within 740 defined steps by direct replay. The `G1` edit to `0LF` takes 2,610,370,830,869,531,054 defined steps by the sweep calculation for that edit. Of the 172 nonhalters, 171 have finite closed-window certificates and `B0` changed to `0RE` preserves an even reserve after startup. The three equivalences are `G0` changed to `0LC` or `1RF`, and `F0` changed to `0RA`. These counts refer to the 351 labeled replacements above.
+**Two edits realizing the minimal word in base $3/2$.** Record a 1 on each sweep that uses `B0`, equivalently each sweep of even size $n$. Write $n=2k+e$. Changing `B0` to `1LG` gives next size $3k+e$, and changing it to `1LE` gives $3k+1$. Both keep the odd exit above. On the even exit, `E1` erases the last of the $3k$ left ones in the first edit and the filled `C0` cell in the second. Both sweeps return for every $n\ge1$ reached from blank.
+
+Let $w_0w_1\ldots$ be the parities of $1,2,3,5,\ldots$ under $u\mapsto\lceil3u/2\rceil$, the minimal word in base $3/2$. For `1LG`, $u=n-1$ follows this map starting at 2. For `1LE`, the first sweep goes from 3 to 4, after which $u=(n-1)/3$ follows it starting at 1. In both coordinates an odd $u$ signals `B0`. The two instruction words are therefore $w_1w_2\ldots$ and $0w_0w_1\ldots$, respectively. [Akiyama, Frougny and Sakarovitch, Remark 32](https://math.tsukuba.ac.jp/~akiyama/papers/3half_H65fullTH-060406.pdf#page=20)
+
+Adding or removing one initial digit changes the number of distinct blocks of any fixed length by at most one. Thus for either edit the number $P(m)$ of distinct length-$m$ blocks in the binary record of `B0` use satisfies $P(m)/m\to\infty$. [maxilism, *Factor complexity of minimal words in rational bases*](https://github.com/maxilism/rational-base-words/blob/ed76a2fcc394442bbf6b823b6a7c3bf28d449d63/complexity.pdf)
 
 ## Companion check
 

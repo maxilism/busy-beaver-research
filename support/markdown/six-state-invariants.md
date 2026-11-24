@@ -10,7 +10,7 @@ The machines are **#184 and #724** in [Dos Santos et al.'s classification, Probl
 
 A set of counter pairs is *semilinear* if it is a finite union of sets $b+\mathbb N v_1+\cdots+\mathbb N v_k$ with $b,v_i\in\mathbb N^2$. Equivalently, it is definable in Presburger arithmetic.
 
-**Theorem.** For either machine there is no separator on the two counters given by a finite Boolean combination of real polynomial sign tests and congruence tests to fixed moduli. In particular, no semilinear separator exists. For #184 there is no semilinear separator even if one samples the blank orbit only at changes of comparison sign. The blank halting status of both machines remains open.
+**Theorem.** For either machine there is no separator on the two counters given by a finite Boolean combination of real polynomial sign tests and congruence tests to fixed moduli. In particular, neither machine admits a semilinear counter separator. For #184 there is no semilinear separator even if one samples the blank orbit only at changes of comparison sign. On tape words with the scanned cell marked and all unmarked exterior blanks trimmed, no finite Boolean combination of context-free languages separates the blank orbit from the halting basin. The blank halting status of both machines remains open.
 
 ## The exact comparisons
 
@@ -75,6 +75,8 @@ It follows that the orbit has **infinitely many limiting directions**. Indeed, i
 Now suppose a polynomial-and-congruence separator existed. Some single residue class modulo a common modulus contains blank points with infinitely many limiting directions. For each nonzero polynomial test choose its top-degree homogeneous part $Q$. The polynomial $Q(t,1-t)$ has only finitely many zeros. Take an interior limiting direction avoiding all these zeros. On a small closed interval about it, every tested sign is constant for all sufficiently large masses: after division by the leading power of the mass the lower terms tend uniformly to zero. Membership in the separator must therefore be true throughout a whole truncated sector in the chosen class. The lemma puts a halting checkpoint there. If instead blank halts, the first checkpoint itself prevents separation.
 
 This argument also covers the literal phase-labelled return maps. The coordinate changes are finite affine recodings on residue slices, invertible on each slice. Their images preserve the stated class of tests, after fixing any denominator residues. For #724 a separator on the published checkpoints would extend to the normalized ones by adjoining $(3u,1)$ for each retained $(u,u+1)$. Those inserted points are safe whenever their predecessors are safe, and the extension is again a finite affine recoding on a line.
+
+The two variable blocks in a physical checkpoint tape are $(11)^a,1^b$ for #184 and $(11)^{a+1},(11)^{b+1}$ for #724. In each phase a finite-state transducer can therefore write the marked tape word from $X^aY^b$. The inverse image of a context-free language under this encoding is context-free, and its set of exponent pairs is semilinear by Parikh's theorem. Since each pair specifies a unique word in $X^*Y^*$, finite Boolean combinations of tape tests still give semilinear sets of pairs in each phase. A tape separator of this kind would give the checkpoint separator just excluded. [Parikh's theorem](https://doi.org/10.1145/321356.321364)
 
 ## Sampling only at changes of sign: the additional #184 obstruction
 
