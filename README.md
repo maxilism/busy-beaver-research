@@ -34,7 +34,7 @@ The [results](results/) use BB(n,k) for n states and k symbols, or BB(n) for bin
 | [Certificate obstructions for Bigfoot and Jacobzheng](results/bb-7-2/certificate-barriers.pdf) | For either machine, an inductive safety certificate that contains the blank checkpoint and is closed under adding reserve needs at least linearly many size intervals as the reserve grows. |
 | [Changing one instruction in Jacobzheng](results/bb-7-2/jacob-neighbors.pdf) | Of 351 neighbors, 176 halt and 172 run forever. Each of the other three halts exactly when the original does. |
 | [Comparing Jacobzheng size trajectories](results/bb-7-2/jacob-size.pdf) | Among all positive starting sizes, 2 (the blank start) gives the smallest value after each iteration. From a checkpoint with at least four units of reserve, the machine runs forever if another size trajectory stays within a bounded distance of its own. [Sweep and companion calculations](support/derivations/jacob-derivations.pdf) |
-| [Two tape-restoring detours](results/bb-7-2/restoring-detours.pdf) | Removing two helper states reduces 721 machines from a historical BB(7) list to 33 five-state machines, all of which run forever from blank. |
+| [Two tape-restoring detours](results/bb-7-2/restoring-detours.pdf) | Deleting two helper states reduces 721 machines from a historical BB(7) holdout list to 33 five-state nonhalters. |
 
 [Jacobzheng verification code](support/verification/bb-7-2/jacobzheng/) · [Seven-to-five-state reduction data](support/data/bb-7-2/restoring-detours/)
 
