@@ -2,7 +2,7 @@
 
 maxilism
 
-LegionMammal found, and dyuan confirmed, a long interval of configurations that lead to one halting trajectory of #758. We reproduce that interval by exact integer iteration. A further 3,732,721 consecutive starting values all pass through the **same configuration on first crossing** its lower edge. The computation starts each of those trajectories at a specified tape. It remains open whether the blank tape ever enters the interval. If it does, the number of ordinary machine steps to halt lies strictly between $1.0522\times10^{414}$ and $9.1341\times10^{416}$.
+LegionMammal found, and dyuan confirmed, a long interval of configurations that lead to one halting trajectory of #758. By exact integer iteration we reproduce that interval and find a further 3,732,721 consecutive starting values that all pass through the **same configuration on first crossing** its lower edge. Each trajectory starts from a specified tape. Whether the blank run enters the interval remains open, but if it does, the number of ordinary machine steps to halt lies strictly between $1.0522\times10^{414}$ and $9.1341\times10^{416}$.
 
 ## Machines, checkpoints and returns
 

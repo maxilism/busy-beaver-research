@@ -11,8 +11,8 @@ The [results](results/) use BB(n,k) for n states and k symbols, or BB(n) for bin
 
 | Paper | Result |
 |---|---|
-| [Factor complexity of Bigfoot’s exact rows](results/bb-3-3/bigfoot-complexity.pdf) | On the arithmetic continuation from blank, the number of distinct length-$m$ blocks grows faster than any constant multiple of $m$. |
-| [Spacing of prescribed reserve changes in Bigfoot](results/bb-3-3/bigfoot-spacing.pdf) | For every fixed $A>0$, any prescribed length-$L$ word over six net reserve changes occurs within $O_A(81^L/L^A)$ consecutive starting sizes. |
+| [Factor complexity of Bigfoot’s exact rows](results/bb-3-3/bigfoot-complexity.pdf) | On the arithmetic continuation from blank, the number of distinct blocks of length $m$ grows faster than any constant multiple of $m$. |
+| [Spacing of prescribed reserve changes in Bigfoot](results/bb-3-3/bigfoot-spacing.pdf) | Fix $A>0$. In the arithmetic model, every word of length $L$ over the reserve changes from −2 to +3 occurs in every interval of $\lceil C_A 81^L/L^A\rceil$ consecutive nonnegative starting sizes, with $C_A$ depending only on $A$. |
 | [Entry into a halting interval for #758 and #153](results/bb-3-3/ternary-entry.pdf) | An interval of 3,732,721 section inputs leads to the same first crossing and then to halting. Entry from blank remains open. [Conditional timing calculation](support/derivations/ternary-capture-clock.pdf) |
 
 [Verification code](support/verification/bb-3-3/)
@@ -23,7 +23,7 @@ The [results](results/) use BB(n,k) for n states and k symbols, or BB(n) for bin
 |---|---|
 | [Arithmetic invariants for #184 and #724](results/bb-6-2/six-state-invariants.pdf) | The counter dynamics rule out safety proofs built from finitely many polynomial inequalities and fixed congruences. |
 | [Return rules for #623](results/bb-6-2/six-state-623.pdf) | At each sampled return from blank, a halting inner branch requires the two counters to lie within a logarithmic distance of each other. |
-| [Halting inputs for Antihydra](results/bb-6-2/antihydra.pdf) | Every arithmetic progression of sizes at fixed reserve contains a subprogression of inputs that halt within an explicit number of returns. |
+| [Halting inputs for Antihydra](results/bb-6-2/antihydra.pdf) | At fixed reserve, every arithmetic progression of sizes contains a subprogression of halting inputs, with an explicit bound on the number of return-map attempts. |
 
 [Finite checks for #184](support/verification/bb-6-2/184/184-check.py)
 
@@ -31,7 +31,7 @@ The [results](results/) use BB(n,k) for n states and k symbols, or BB(n) for bin
 
 | Paper | Result |
 |---|---|
-| [Certificate obstructions for Bigfoot and Jacobzheng](results/bb-7-2/certificate-barriers.pdf) | For binary Bigfoot and Jacobzheng’s machine, a run that changes size while preserving reserve restricts the form of safety proofs. |
+| [Certificate obstructions for Bigfoot and Jacobzheng](results/bb-7-2/certificate-barriers.pdf) | For either machine, an inductive safety certificate that contains the blank checkpoint and is closed under adding reserve needs at least linearly many size intervals as the reserve grows. |
 | [Changing one instruction in Jacobzheng](results/bb-7-2/jacob-neighbors.pdf) | Of 351 neighbors, 176 halt and 172 run forever. Each of the other three halts exactly when the original does. |
 | [Comparing Jacobzheng size trajectories](results/bb-7-2/jacob-size.pdf) | The blank seed has the least size at every positive time among positive starting sizes. A distinct trajectory that stays a bounded distance away would certify survival from a suitable later checkpoint. [Sweep and companion calculations](support/derivations/jacob-derivations.pdf) |
 | [Two tape-restoring detours](results/bb-7-2/restoring-detours.pdf) | Two reductions take 721 historical 7-state tables to the same 33 5-state machines. |
@@ -42,7 +42,7 @@ The [results](results/) use BB(n,k) for n states and k symbols, or BB(n) for bin
 
 | Paper | Result |
 |---|---|
-| [Blank running time with one left instruction](results/families/one-left.pdf) | A bound uniform in the number of states gives fewer than $2^{251}$ steps for every 7-state binary blank-tape halter in this class. |
+| [Blank running time with one left instruction](results/families/one-left.pdf) | With $n$ states and at most one left-moving nonhalting instruction, a binary machine that halts from blank takes at most $2^{O(n^2\log(n+2))}$ steps. |
 | [Two-state machines on finite input](results/families/two-state-tail.pdf) | For a halting two-state binary machine, running time is at most quadratic in the width of the input. The bound also applies to two-state tails of larger machines. |
 
 [How to reproduce the checks](support/markdown/verification.md) · [Markdown sources](support/markdown/)
