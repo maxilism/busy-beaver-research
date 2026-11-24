@@ -15,7 +15,15 @@ The [results](results/) use BB(n,k) for n states and k symbols, or BB(n) for bin
 | [Spacing of prescribed reserve changes in Bigfoot](results/bb-3-3/bigfoot-spacing.pdf) | Fix $A>0$. In the arithmetic model, every word of length $L$ over the reserve changes from −2 to +3 occurs in every interval of $\lceil C_A 81^L/L^A\rceil$ consecutive nonnegative starting sizes, with $C_A$ depending only on $A$. |
 | [Entry into a halting interval for #758 and #153](results/bb-3-3/ternary-entry.pdf) | From 3,732,721 consecutive starting values, #758 first crosses the lower edge of the halting interval in the same configuration and then halts. Whether the blank run enters the interval is open. [Conditional timing calculation](support/derivations/ternary-capture-clock.pdf) |
 
+[Bigfoot’s four-sweep return (Lean)](support/verification/bb-3-3/bigfoot/four-sweeps/). A block halts if its signed final reserve is negative. The only other halting blocks start with zero reserve and an original House size congruent to 8, 13, 32 or 37 modulo 81.
+
 [Verification code](support/verification/bb-3-3/)
+
+## BB(5)
+
+| Paper | Result |
+|---|---|
+| [Regular separation for the cubic helix](results/bb-5-2/cubic-helix.pdf) | For machine 4817065, a regular language contains the blank orbit and excludes every configuration that eventually halts. No such regular language is closed under machine steps. [Automaton and checker](support/verification/bb-5-2/cubic-helix/) |
 
 ## BB(6)
 
@@ -23,6 +31,7 @@ The [results](results/) use BB(n,k) for n states and k symbols, or BB(n) for bin
 |---|---|
 | [Arithmetic invariants for #184 and #724](results/bb-6-2/six-state-invariants.pdf) | Suppose a test on the two counters accepts every checkpoint on the blank run. If the test is built from finitely many polynomial inequalities and congruences modulo fixed integers, it also accepts a checkpoint that leads to a halt. The same holds for finite Boolean combinations of context-free languages on marked tapes. |
 | [Return rules for #623](results/bb-6-2/six-state-623.pdf) | At each sampled return from blank, a halting inner branch requires the two counters to lie within a logarithmic distance of each other. |
+| [Parents and grandparents of fatal checkpoints for #623](results/bb-6-2/623-predecessor-density.pdf) | For one family of halting targets indexed by even $t$, the parameters admitting a parent under the sampled return map have relative density $1/3$ among even parameters. Among targets with a parent, the lower relative density of those without a grandparent is at least $70/729$. [Source](support/markdown/623-predecessor-density.md) · [Finite checks](support/verification/bb-6-2/623/) |
 | [Halting inputs for Antihydra](results/bb-6-2/antihydra.pdf) | At fixed reserve, every arithmetic progression of sizes contains a subprogression of halting inputs, with an explicit bound on the number of return-map attempts. |
 
 [Finite checks for #184](support/verification/bb-6-2/184/184-check.py)
@@ -43,7 +52,8 @@ The [results](results/) use BB(n,k) for n states and k symbols, or BB(n) for bin
 | Paper | Result |
 |---|---|
 | [Blank running time with one left instruction](results/families/one-left.pdf) | With $n$ states and at most one left-moving nonhalting instruction, a binary machine that halts from blank takes at most $2^{O(n^2\log(n+2))}$ steps. |
-| [Two-state machines on finite input](results/families/two-state-tail.pdf) | Up to reflection and renaming, one transition pattern attains quadratic time in the input width. Every other table takes linear time or less on halting inputs. |
+| [Two-state machines on finite input](results/families/two-state-tail.pdf) | On a two-way tape with a halt instruction, one transition pattern attains quadratic time in the input width, up to reflection and renaming. Every other table takes linear time or less on halting inputs. |
+| [Longest halting times on a one-sided tape](results/families/two-state-halting-times.pdf) | Start at the edge and count the move off the tape as the final step. For binary inputs of width $n\ge5$, the maximum over halting runs of the 4,096 two-state tables is $2^{n+2}-3$ steps. Only rules 378 and 1351 attain it, both on the all-ones input. [Certificates and independent replay](support/verification/families/two-state-halting-times/) |
 
 [How to reproduce the checks](support/markdown/verification.md) · [Markdown sources](support/markdown/)
 

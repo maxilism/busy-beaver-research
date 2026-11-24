@@ -1,0 +1,11 @@
+name = "BigfootBridge"
+version = "0.1.0"
+defaultTargets = ["BigfootBridge"]
+
+[[require]]
+name = "Cryptids"
+git = "https://github.com/google-deepmind/cryptids.git"
+rev = "3647718b5df22e1a61462dec0376bd204526285a"
+
+[[lean_lib]]
+name = "BigfootBridge"
