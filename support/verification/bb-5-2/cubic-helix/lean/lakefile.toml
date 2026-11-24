@@ -1,0 +1,5 @@
+name = "CubicHelix"
+version = "0.1.0"
+defaultTargets = ["Helix"]
+[[lean_lib]]
+name = "Helix"
