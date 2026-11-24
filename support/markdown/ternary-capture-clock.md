@@ -27,7 +27,7 @@ LegionMammal978's two-counter map contracts dyuan01's eleven-rule system. A chec
 
 In particular $3m^2\le\tau\le3m^2+29S+65$.
 
-## Upper bound
+## <span id="upper-bound"></span>Upper bound from a telescoping potential
 
 For an upper bound use $\Phi(S,c)=7Sc/3-4c^2\ge0$. Write $x=c/S$, $y=a/S$ and let $c^*$ be the leading homogeneous part of $c'$. The table bounds the frozen normalized cost $[3m^2+\Phi(S,c^*)-\Phi(S,c)]/S^2$, keeping $S$ fixed in the potential.
 
@@ -44,7 +44,7 @@ $$
 $$
 with $0\le c'-c^*\le7$, $c'\le(S+9)/2$ and $\Delta\le9$. Hence $\tau+\Phi(S',c')-\Phi(S,c)\le(5/144)S^2\Delta+56S+160$. Sum over macros up to size $X$ using $\sum S^2(S'-S)\le X^3/3$ and at most $X/3$ terms. Even adding a terminal halting macro at $X$, elapsed time is below $5X^3/432+100(X+10)^2$.
 
-## Lower bound
+## <span id="lower-bound"></span>Lower bound from small-counter runs and their entrances
 
 Under the capture hypothesis the run reaches $A(1,H)$ at size $2H+1$. After 306 more nonhalting macros, it halts on row (d) at input size $2H+1258$. Partition the history backwards while $10^8+7200\le X\le 2H+1258$. A balanced input has $m\ge S/50$ and can be taken alone. If the last input is unbalanced, take its maximal run with the same small counter, together with its entrance from balanced inputs. The table gives the following bounds for a group starting at $z\ge10^8$, with total size increment $D$:
 

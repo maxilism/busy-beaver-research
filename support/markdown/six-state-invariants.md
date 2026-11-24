@@ -12,7 +12,7 @@ A set of counter pairs is *semilinear* if it is a finite union of sets $b+\mathb
 
 **Theorem.** For either machine there is no separator on the two counters given by a finite Boolean combination of real polynomial sign tests and congruence tests to fixed moduli. In particular, neither machine admits a semilinear counter separator. For #184 there is no semilinear separator even if one samples the blank orbit only at changes of comparison sign. On tape words with the scanned cell marked and all unmarked exterior blanks trimmed, no finite Boolean combination of context-free languages separates the blank orbit from the halting basin. The blank halting status of both machines remains open.
 
-## The exact comparisons
+## Normalized two-counter return maps
 
 The [published accelerations](https://arxiv.org/pdf/2610.22603) (Appendices A.8 and A.3) describe the machines from blank; the linked Lean definitions below give their return rules and halting equivalences. With the following changes of coordinates, both halt on $u-v\in\{0,1\}$. Call the branch for $u<v$ left ($L$), and the one for $u\ge v+2$ right ($R$).
 
@@ -58,7 +58,7 @@ $$Y=Ar+b+m3^{|w|}z\quad\Longrightarrow\quad X=A^{-1}(Y-b)=r+m\,\operatorname{adj
 
 Thus $X\equiv r\pmod m$. All intermediate backward coordinates tend to infinity with the two coordinates of $Y$, since the inverse matrices are nonnegative with positive diagonal. Undoing $L$ gives $v-u$ equal to the next $v$; undoing $R$ gives $u-v$ equal to the next $u$ minus at most 4. Thus the prescribed branches really do occur. Their fixed additive translations change the initial direction by $o(1)$ relative to the homogeneous inverse. For large enough $Y$ we obtain $u/(u+v)\in I$, as asserted.
 
-## The directions visited by a surviving orbit
+## Limiting directions rule out polynomial separators
 
 Suppose the blank computation continues forever. Its mass $u+v$ tends to infinity: on #184 a step gains $u+2$ or $v+5$, and on #724 it gains $u$ or $v+1$. Both coordinates are positive after the first update. Neither branch can run forever on its own: the smaller counter grows at least threefold while successive updates subtract it, up to a fixed additive correction, from the other one.
 
@@ -78,7 +78,7 @@ This argument also covers the literal phase-labelled return maps. The coordinate
 
 The two variable blocks in a physical checkpoint tape are $(11)^a,1^b$ for #184 and $(11)^{a+1},(11)^{b+1}$ for #724. In each phase a finite-state transducer can therefore write the marked tape word from $X^aY^b$. The inverse image of a context-free language under this encoding is context-free, and its set of exponent pairs is semilinear by Parikh's theorem. Since each pair specifies a unique word in $X^*Y^*$, finite Boolean combinations of tape tests still give semilinear sets of pairs in each phase. A tape separator of this kind would give the checkpoint separator just excluded. [Parikh's theorem](https://doi.org/10.1145/321356.321364)
 
-## Sampling only at changes of sign: the additional #184 obstruction
+## No semilinear separator at #184 branch switches
 
 An *era* consists of consecutive updates on one branch until the comparison changes or the machine halts. Here a separator must contain every era start on the blank run and exclude every checkpoint that leads to a halt.
 

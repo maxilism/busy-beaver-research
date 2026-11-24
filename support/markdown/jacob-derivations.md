@@ -27,7 +27,7 @@ If two ones remain to the right, start at $1^l[\mathrm C0]11Y$. The three transi
 
 With $y=n-1$ the size update on completed sweeps is $T(2k)=3k$, $T(2k+1)=3k+5$. It earns two reserve units on an even $y$ and spends one on an odd $y$. Continuing $T$ through an overdraft defines an arithmetic orbit only. The [literal-table checker](../verification/bb-7-2/jacobzheng/second-check.py) tests the transitions and clocks on finite examples, including the `E0` case.
 
-## Neighbor counts
+## <span id="neighbor-counts"><a name="neighbor-counts"></a></span>First reads and halting outcomes by edited instruction
 
 Keep `E0` undefined and replace exactly one of the other 13 entries by a *different* defined instruction. There are $2\cdot2\cdot7-1=27$ choices at each entry. **First read** is the time, in defined transitions on the original blank run, just *before* the entry is executed. Every modification shares this prefix. The third outcome column counts edits proved to halt if and only if the original does.
 
@@ -54,7 +54,7 @@ Let $w_0w_1\ldots$ be the parities of $1,2,3,5,\ldots$ under $u\mapsto\lceil3u/2
 
 Adding or removing one initial digit changes the number of distinct blocks of any fixed length by at most one. Thus for either edit the number $P(m)$ of distinct length-$m$ blocks in the binary record of `B0` use satisfies $P(m)/m\to\infty$. [maxilism, *Factor complexity of minimal words in rational bases*](https://github.com/maxilism/rational-base-words/blob/ed76a2fcc394442bbf6b823b6a7c3bf28d449d63/complexity.pdf)
 
-## Companion check
+## <span id="companion-check"><a name="companion-check"></a></span>Testing the signed-gap cycle on the blank orbit
 
 At each of the first 6,000 blank sizes $y_t$, test the six possible phases of the signed gap cycle $1,-2,-3,-1,2,3$ against the actual parity bits. Only positive companion starts count. A gap $d$ updates by subtracting the two size recurrences: if $e=y\bmod2$, the companion parity is $e$ for even $d$ and $1-e$ for odd $d$. Among those tested, the longest match lasts **20 transitions**, starting at sweep 542 with $d=-1$. The next transition leaves the cycle. The following integer computation also checks that the blank reserve never went negative over the data used.
 

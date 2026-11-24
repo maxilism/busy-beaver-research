@@ -8,7 +8,7 @@ Let a deterministic machine have two working states, a two-way binary tape, and 
 
 Finite-input decidability is classical. See [Pavlotskaya (1973)](https://doi.org/10.1007/BF01163965) and [Kudlek, *Small deterministic Turing machines* (1996)](https://doi.org/10.1016/S0304-3975(96)00078-3). [Neary and Woods, §3.4](https://arxiv.org/abs/1110.2230) credit K. Wagner (*Elektronische Informationsverarbeitung und Kybernetik* **9**, 1973, 423–431) with an asymptotic linear space bound.
 
-## Which state graphs need a time estimate?
+## Cycle signs and the left-pair reduction
 
 In the graph of nonhalting transitions, weight right edges by $+1$ and left edges by $-1$. A run visits each strongly connected component in a single phase. First consider a visited component whose cycles do not have both signs. Reflect if necessary to make all cycle weights nonnegative. Give each vertex a zero-weight edge **from** an auxiliary source and let $h(q)$ be the negative of its shortest-path distance. A shortest path can be simple, so $0\le h\le1$ for two states ($h=0$ for one). In state $q$ at position $x$ the coordinate $s=x+h(q)$ is nondecreasing on internal transitions, by the shortest-path inequality. The head stays in $[s-1,s]$.
 
@@ -23,7 +23,7 @@ In a two-vertex component with cycles of both signs, a halter needs one halt row
 
 A successful left macro rewrites the pair $av$ as $yz$, in left-to-right order. If the machine starts in $A$, execute one step first. Unless it halts there, the resulting starting interval $[l,r]$, including the old one, has length $N\le L+1$.
 
-## How far can the mixed component travel?
+## Tape width under right moves and left pairs
 
 If $w\ne a$, attempting a left macro just after a right one halts on the just-written $w$. All successful left macros therefore precede the right moves. On the left leg, once both cells read are fresh blanks, the machine jumps left forever, fails the test, or begins its right leg. On the right leg, the first virgin cell beyond $r$ either starts a failed left macro or begins an infinite right scan. The interval $[l-5,r+3]$ suffices. For the remaining cases assume $w=a$.
 
@@ -42,7 +42,7 @@ If $w\ne a$, attempting a left macro just after a right one halts on the just-wr
 
 Allowing the intermediate test and the final halt move, the run fits in $[l-N-5,r+5]$ for blank $u$ and $[l-5,r+N+5]$ for blank $v$. Both intervals have width $2N+10\le W$.
 
-## Time in the mixed component
+## Linear time bounds and the quadratic potential
 
 Number the cells of a containing interval from $0$ to $W-1$. All symbol counts and sums in this time estimate refer only to these cells, even when the letter being counted is blank. Between the first and last $D$-checkpoints write $S$ for the number of right moves, $P$ for the number of successful left pairs, and $\delta$ for head displacement. The elapsed time is
 
@@ -60,8 +60,8 @@ $$
 
 A right move changes it by $(p+1)^2-p^2-2p=1$. A left pair erasing $v$'s at $p-1,p$ changes it by $(p-2)^2-p^2+2(p-1)+2p=2$. Its increase equals the elapsed time, and its range has length at most $(W-1)^2+W(W-1)<2W^2$. Allow one step from an initial $A$ and two for the final failed pair. This proves the clock.
 
-**The exceptional table.** Only $w=a=v$ with $vv\mapsto uu$ can exceed linear time. Take `1RA0LB_1RZ0LA`, with looping state $A$, guard state $B$, columns $0,1$, and $Z$ halt. Start in $A$ at the first cell of $0\,1^j\,0\,1$ on a zero background. For $0\le i\le j$ the machine reaches $A$ at $-i$ with just the ones in $[i+1,j]$ and at $j+2$. For $i<j$, it takes $2i+1$ right moves through position $i$ and $i+1$ left pairs to erase the resulting even block and land at $-i-1$. At $i=j$ it makes $2j+2$ right moves, $j+1$ successful left pairs and a failed pair. This gives $2j^2+5j+6$ steps on width $j+3$. For a background of ones, copy the same initial symbols throughout the visited interval. Its width is $O(j)$ by the space bound, and every step is preserved.
+**The quadratic witness.** Only $w=a=v$ with $vv\mapsto uu$ can exceed linear time. Take `1RA0LB_1RZ0LA`, with looping state $A$, guard state $B$, columns $0,1$, and $Z$ halt. Start in $A$ at the first cell of $0\,1^j\,0\,1$ on a zero background. For $0\le i\le j$ the machine reaches $A$ at $-i$ with just the ones in $[i+1,j]$ and at $j+2$. For $i<j$, it takes $2i+1$ right moves through position $i$ and $i+1$ left pairs to erase the resulting even block and land at $-i-1$. At $i=j$ it makes $2j+2$ right moves, $j+1$ successful left pairs and a failed pair. This gives $2j^2+5j+6$ steps on width $j+3$. For a background of ones, copy the same initial symbols throughout the visited interval. Its width is $O(j)$ by the space bound, and every step is preserved.
 
-**Seven-state application.** Suppose five states contain the start and every instruction in the other two either halts or stays within that pair. Replace each entrance to the pair by a halt. The resulting five-state blank machine agrees until its halt or that entrance, which on a halting run occurs within $B=47{,}176{,}870$ steps by the [BB(5) theorem](https://arxiv.org/abs/2509.12337). At entrance the head and all nonblank cells fit in $B+1$ cells. Taking $W=2(B+1)+12=94{,}353{,}754$ gives at most $B+2W^2+3=$ **17,805,261,834,961,905 steps** including the prelude.
+**Seven-state machines with a closed two-state tail.** Suppose five states contain the start and every instruction in the other two either halts or stays within that pair. Replace each entrance to the pair by a halt. The resulting five-state blank machine agrees until its halt or that entrance, which on a halting run occurs within $B=47{,}176{,}870$ steps by the [BB(5) theorem](https://arxiv.org/abs/2509.12337). At entrance the head and all nonblank cells fit in $B+1$ cells. Taking $W=2(B+1)+12=94{,}353{,}754$ gives at most $B+2W^2+3=$ **17,805,261,834,961,905 steps** including the prelude.
 
 © 2026 maxilism. Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).

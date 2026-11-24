@@ -8,7 +8,7 @@ At its 49th four-sweep checkpoint after initialization, Bigfoot has reserve 27 a
 
 How large an interval of starting sizes can miss a prescribed word of gains and losses? Specifying $L$ exact rows of Matthew House's four-sweep map gives one congruence class modulo $81^L$. Specifying the reserve changes instead leaves choices of row. For six of the seven possible changes, these choices cut the maximum gap by more than any fixed power of $L$.
 
-## The checkpoint and the gap bound
+## Gap bound for reserve-change words
 
 The BB(3,3) holdout Bigfoot has table `1RB2RA1LC_2LC1RB2RB_---2LA1LA`, with 7-state binary compilation `0RB1RB_1LC0RA_1RE1LF_1LF1RE_0RD1RD_1LG0LG_---1LB`. We use [S. Ligocki's sweep rules and House's four-sweep reduction](https://www.sligocki.com/2023/10/16/bb-3-3-is-hard.html#alternative-representation), with [House's even-size coordinate](https://github.com/sligocki/sligocki.github.io/issues/8#issuecomment-1773177231). The checkpoint is $C(h,y)=A(h,4y+1,2)$ for nonnegative integers $h,y$. Here $A(h,b,c)$ denotes the tape $(12)^h(11)^b$ to the left of the head boundary and $(11)^c$ to its right, on a blank background, with state $A$ scanning the cell immediately to the left of the boundary. The blank run first reaches $C(2,0)$ after 69 ternary steps. The same checkpoint calculation applies to other starting tapes in the [binary compilation](https://github.com/sligocki/sligocki.github.io/issues/8#issuecomment-2140920663).
 
@@ -27,7 +27,7 @@ Put $p=256$, $q=81$ and let $G$ take a size to the next size after four sweeps. 
 
 One can first prescribe any $m$ exact rows. If their initial sizes are $b+q^m t$ with $0\le b<q^m$, the theorem gives the same bound on gaps **in the index $t$** for the next $L$ changes, uniformly in $m$ and the prefix. The letter $+4$ has only one row. Repeating it $L$ times really does leave a single class modulo $q^L$.
 
-## The addresses of the admissible sizes
+## Fourier coefficients of the subset-sum distribution
 
 Write $z=q/p$ and $\lambda=p/q$. Offsets $d_0,\ldots,d_{L-1}$ of specified rows prescribe precisely the class
 $$
@@ -66,7 +66,7 @@ An arc containing no addresses contributes its whole length as error. Rescaling 
 
 The proof for all $A$ supplies no effective onset. An elementary argument gives a small effective power. On a run of small positions $a,\ldots,b$, the recurrence has zero carries, so $q^{-a}\le|u_a|=\lambda^{a-b}|u_b|$. Thus $b\le Ba$ for $B=1+1/\log_q\lambda$. Each small run and the next large position take a starting index $a$ to at most $Ba+2$. Consequently there are at least $\log_B n-O(1)$ large positions, with effective constants. The product is $O(n^{-d})$ for $d=-\log(\cos(\pi\eta))/\log B>0$. Taking $K=L$ above gives, for example, the effective spacing exponent $d/2$.
 
-## Consequence for a safety interval along the blank run
+## Reserve lower bound for interval safety
 
 Suppose that at arbitrarily late reached blocks $i$ an argument asserts safety for **every** size in $[y_i,(1+\delta)y_i]$ at the actual reserve $h_i$, with fixed $\delta>0$. A word of $L=\lfloor h_i/2\rfloor+1$ worst blocks would halt one of these starts. Hence $\delta y_i=O_A(q^L/L^A)$. Summing the affine recurrence from $y_0=0$ gives $y_i=\Theta(\lambda^i)$. Even the bound with $A=0$ gives $L\gg i$. Taking logarithms and then taking $A$ arbitrarily large yields the necessary condition
 $$

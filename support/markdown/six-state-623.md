@@ -12,7 +12,7 @@ $$|a-d|\le 5+\ell_3(\min(a,d)+2),$$
 
 where $\ell_3(n)$ counts the base-three digits of $n$ and $\ell_3(0)=0$. The blank orbit does enter this strip: $D(26,26)$ is its fourth checkpoint and returns safely to $D(2,83)$. Whether the machine ever halts remains open.
 
-## Counting parity through a return
+## Successful returns preserve even first counters
 
 Two routines make up the published map. Only the first two arguments of each matter here; the omitted third argument does not affect decisions within the routines. The first routine, `evalA`, reads the low digit $r$ of its index $k=3j+r$. With budget $A$, its rules for the first two outputs are:
 
@@ -39,7 +39,7 @@ Here are the possible calls at a checkpoint with even $a$, in order of precedenc
 
 Each direct drain starts with even sum. In the last row the sum plus one is even, so the evaluation hands an even sum to the drain. Every successful return from an even $a$ therefore gives another even $a$. Induction from $D(0,7)$ proves the parity assertion without assuming that all returns succeed.
 
-## The digits available before failure
+## Ternary digit counts and the failure strip
 
 A single digit decision spends at most one budget unit. If another decision follows, its index is at most $\lfloor k/3\rfloor$: recursion uses the quotient $j$, while a new drain uses $j-1$ if $j>0$. Reading $k=0$ finishes the calculation or halts. There are consequently at most $1+\ell_3(k)$ decisions from an initial index $k$, counting that last zero if it occurs. The only failure requires zero budget *before* a decision. Evaluation followed by a drain is thus safe for $A>\ell_3(k)$, and a drain with $B>0$ is safe for $A>\ell_3(B-1)$.
 

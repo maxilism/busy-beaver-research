@@ -6,7 +6,7 @@ maxilism
 
 LegionMammal found, and dyuan confirmed, a long interval of configurations that lead to one halting trajectory of #758. By exact integer iteration we reproduce that interval and find a further 3,732,721 consecutive starting values that all pass through the **same configuration on first crossing** its lower edge. Each trajectory starts from a specified tape. Whether the blank run enters the interval remains open, but if it does, the number of ordinary machine steps to halt lies strictly between $1.0522\times10^{414}$ and $9.1341\times10^{416}$.
 
-## Machines, checkpoints and returns
+## The two-counter map and its reset section
 
 Machine numbers follow the [BB(3,3) holdout list](https://wiki.bbchallenge.org/wiki/BB(3,3)).
 
@@ -34,7 +34,7 @@ Put $S=a+2c$, so $a=S-2c$. The following rows suffice for both blank trajectorie
 
 A **section return** means the output of the next (h). From $A(1,3)$, the first such return is $A(1,45)$, although the trajectory visits $A(1,23)$ along the way. This convention matters when summing several returns. Every nonhalting macro increases $S$. Hence the sequence of section values $c=(S-1)/2$ is strictly increasing.
 
-## Exact finite entry calculation
+## Return recurrences for capture and first crossing
 
 Set
 $$
@@ -56,15 +56,15 @@ S=L_0+2,\qquad a=4\cdot3^{51}-1,\qquad c=(S-a)/2.
 $$
 No earlier crossing is possible because $S$ increases at each macro. Thus visiting even one of those 3,732,721 sections fixes the first crossing. Monotonicity *along* a trajectory does not order the returns of different inputs: #758 from blank reaches a section with $218\mapsto298$, whereas the larger seed $220\mapsto264$.
 
-**Reproducible data.** The [enumerator](../verification/bb-3-3/ternary-entry/basin758.cpp) and [entry calculation](../verification/bb-3-3/ternary-entry/entry-audit.py) use the table above. The SHA-256 of $v[0],\ldots,v[16{,}000{,}000]$ as little-endian unsigned 16-bit integers is `5cd4ea394b6b99c475ca8dc233750df5a3bcc39c33f550614e6ba1130b958d57`. The hash of the corresponding 8,000,001 labels $p$, with $p[0]=0$, is `e32bc4b56f6397eb99562460668bb9832f75cac0b0e3f06d073ada4e54500b2a`. The range and both recurrences specify what these fingerprints check.
+**Return-increment and label hashes.** The [enumerator](../verification/bb-3-3/ternary-entry/basin758.cpp) and [entry calculation](../verification/bb-3-3/ternary-entry/entry-audit.py) use the table above. The SHA-256 of $v[0],\ldots,v[16{,}000{,}000]$ as little-endian unsigned 16-bit integers is `5cd4ea394b6b99c475ca8dc233750df5a3bcc39c33f550614e6ba1130b958d57`. The hash of the corresponding 8,000,001 labels $p$, with $p[0]=0$, is `e32bc4b56f6397eb99562460668bb9832f75cac0b0e3f06d073ada4e54500b2a`. The range and both recurrences specify what these fingerprints check.
 
-## Testing a possible crossing against its past
+## Guarded predecessor search for one crossing candidate
 
 A long legal continuation can start from a checkpoint with no blank predecessor history. For example, take $S=L_0$ and $c=219261$. In the interior an odd/odd state can make a single (j), denoted $J$, or two successive lower moves from (b),(c), denoted $P$. The first lower move changes the parity of $a$, so it takes a second to return to odd/odd. Apart from these continuations, any reached odd/odd state must have started or just reset with $a=1$, $a=3$ (the (i) after an even-$c$ reset), or $c=1$ (row (e)).
 
 This example admits 403 complete forward letters $J,P$. To search its past, invert $J$ by $a_{\rm old}=(a-2)/3$, $c_{\rm old}=c+a_{\rm old}-1$. For a pair $P$ invert $S_{\rm old}=S-D$, $c_{\rm old}=(4c-\beta)/9$, where $(D,\beta)$ in order bb, bc, cb, cc are $(10,35),(14,47),(14,53),(18,65)$. Keep only nonnegative integers satisfying both original guards in forward order. Exhausting the alternatives gives two states at depth 27, none at depth 28 and 92 state-depth pairs in total. All have $a>3,c>1$, excluding every possible reset or start. Thus this one candidate is unreachable from blank despite having a genuine 27-letter past on another tape. The [guarded search](../verification/bb-3-3/ternary-entry/back-wall.py) does not exhaust all crossing candidates.
 
-## Raw clocks on capture
+## Conditional step bounds and the #153 clock offset
 
 For #758 the expected magnitude $10^{414}$ to $10^{417}$ was [reported previously](https://discord.com/channels/960643023006490684/1259770474897080380/1568717661494448249). The [raw step bounds](ternary-capture-clock.md) give a deterministic bracket **conditional on the blank run reaching $A(1,H)$**:
 $$

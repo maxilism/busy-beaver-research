@@ -23,7 +23,7 @@ Jacobzheng's table is `1LG0LD_1RE1RA_1RB1RC_1RC1LD_---0LF_1LC1LF_1LF1LE`. At $C(
 
 For either machine $F(y)=\lambda y+O(1)$. On the blank size orbit $y_t$ we have $\log y_t=t\log\lambda+O(1)$ for $t\ge1$: the nonnegative additive errors have bounded geometric sum after scaling by $\lambda^{-t}$, and the first positive size gives a positive lower bound on that scale. Consecutive large sizes have gaps $\gg\lambda^t$. A surviving reserve satisfies $h_t\le h_0+gt$.
 
-## A prescribed word of rows
+## Halting subprogressions at fixed reserve
 
 A word of $n$ rows selects exactly one class of initial sizes modulo $q^n$. Indeed, on the class for a given prefix of length $j$, shifting the input by $q^j u$ shifts the output by $p^j u$. Since $p^j$ is a unit modulo $q$, the $q$ lifts of the input class give each next row once. Induction starts with the empty prefix. This coding is also a case of [Kingsbery, Levin, Preygel and Silva, Theorem 4.8](https://arxiv.org/pdf/0903.4226#page=11): on each row the size map is locally scaling on the 3-adic or 2-adic integers.
 
@@ -31,7 +31,7 @@ Fix a size residue modulo $M\ge1$. Let $f$ be the least exponent such that the p
 
 At fixed $h$, append sufficiently many copies of Bigfoot row 5 or the odd Jacobzheng row. Every input in the resulting subprogression halts, either in the prescribed prefix or when the losses consume what remains. Thus **every infinite progression at fixed reserve meets the halting basin**.
 
-## Separation on checkpoints and on tape
+## No semilinear checkpoint or context-free tape separator
 
 A separator must contain all checkpoints reached from blank and avoid all checkpoints leading to a halt. There is no semilinear separator, even without closure under successors. Indeed, in a linear set $b+\sum_i\mathbb N v_i\subseteq\mathbb N^2$ of safe pairs $(h,y)$, any generator $(0,d)$ with $d>0$ gives a forbidden progression. The other nonzero generators have positive first coordinate and finitely many slopes. Taking a finite union yields $y\le A+Bh$ throughout any safe semilinear set. If blank survives, its exponentially growing sizes and at most linearly growing reserves violate this inequality. If blank halts, its first checkpoint already belongs to the halting basin. This also excludes Presburger separators by [Ginsburg and Spanier, Theorem 1.3](https://msp.org/pjm/1966/16-2/pjm-v16-n2-p09-p.pdf#page=5).
 
@@ -42,7 +42,7 @@ Use binary tape words with a marked head cell and no exterior blank padding. Big
 
 Restrict a putative context-free separator to these regular forms. A finite-state transduction counts the two runs in distinct letters, one letter per repeated block, removing fixed markers and the fixed length offsets. By [Parikh's theorem](https://doi.org/10.1145/321356.321364) the resulting exponent pairs are semilinear. For a backward certificate containing the halting basin and excluding the blank run, complement the *semilinear slice*, which is again semilinear. This argument does not require context-free languages to be closed under complement. It excludes regular closed tape languages and the additive scalar WFAR of the [BB(5) proof, §§4.2, 4.7](https://arxiv.org/pdf/2509.12337#page=32): on either checkpoint form, a finite automaton scanning repetitions of a fixed block eventually cycles and adds a constant weight per cycle. Splitting exponents by transient and cycle residues makes each of its terminal-state interval tests Presburger. Irregularity arguments for other machines, including [Finned #3](https://discuss.bbchallenge.org/t/10756090-is-irregular/137), already use reached and halting configurations to exclude regular separators.
 
-## Return to the same reserve
+## Reserve-neutral returns and interval counts
 
 Now let $I$ be a forward-inductive safe set of checkpoints: all sweeps from each member are safe and its next checkpoint belongs to $I$. At a given height $h$, suppose each of the $M$ size residue classes contains at most $K\ge1$ interval components of $I_h$. An interval means consecutive terms of that progression. Every component is finite by the halting-progression result. Let $D$ be the greatest numerical distance between two endpoints of one component, over all the residue classes at that height. An empty fiber needs no bound.
 
@@ -69,7 +69,7 @@ $$K_h\ \ge\ (h-h_0)/g-O_M(\log(h+2)).$$
 
 In particular, boundedly many interval components cannot give an upward-closed certificate. Without upward closure, uniformly bounded component counts still bound fiber cardinalities by the span estimate; the finitely many small heights have finite fibers too. Such a certificate with arbitrary endpoints exists precisely if blank survives and its reserve visits each height a uniformly bounded number of times. For sufficiency take the reached pairs as singleton components; this gives no method for computing their endpoints.
 
-## A necessary speed for definable endpoints
+## O-minimal endpoints force rational reserve speed
 
 Suppose, without assuming upward closure, that on each pair of fixed residues $h,y\bmod M$, $I$ is the integer trace of a set definable in a fixed o-minimal expansion of the ordered real field. Here o-minimality means in particular that every definable subset of the line is a finite union of points and intervals. [Cell decomposition and monotonicity](https://doi.org/10.1017/CBO9780511525919) give uniformly bounded component counts and a finite list of definable endpoint functions at large heights. If $I$ contains blank, its finite fibers and strictly increasing sizes force $h_t\to\infty$. Each late $y_t$ is within $O(1)$ of an endpoint $f_i(h_t)$: the interval's integer span is bounded, and rounding its real endpoints to the size progression costs at most $M$ each. Unbounded intervals in the nonnegative size direction are excluded by the fatal progression.
 

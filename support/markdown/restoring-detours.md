@@ -6,7 +6,7 @@ maxilism
 
 Two instruction patterns reduce 721 machines in a [historical BB(7) holdout list](https://drive.google.com/file/d/16gPFf6O5oz-JVFiDq43Hxe2AVTqX4VqX/view) to 33 five-state machines that run forever from blank. In the first pattern a pair of helper states repaints a run of arbitrary length and retraces it. In the second, the helpers visit two adjacent cells twice. Deleting the helpers works because the head, tape and state on return agree with those after a single instruction in the reduced machine. Of the 721 machines, 49 also inherit known obstructions to a regular-language proof of nonhalting.
 
-## Deleting two helper states
+## Restoring scans and two-cell toggles
 
 Use a two-way binary tape, initially all zeros; count the final halt instruction as a step. Call two non-start states $E,F$ and the other five states the core. Fix a bit $a$, its complement $b=1-a$, a direction $d\in\{-1,+1\}$, and a core state $G$. Every core instruction entering a helper must write $a$ at its cell $x$, move to $y=x+d$ and enter $E$. Form the **shadow** by redirecting each such *call* to $G$ without changing its write or move, then deleting $E,F$. The following table gives two sufficient helper patterns; each entry lists (write, direction, next state). In the toggle pattern $\sigma$ is either the identity or bit complement.
 
@@ -21,7 +21,7 @@ Consequently each returning call has the effect of one shadow step. A halting se
 
 Let $T$ be the number of shadow steps in a projected blank halter. Before step $j$, numbered from one, the shadow has written at most $j-1$ ones. Thus a scan of ones costs at most $2j+1$. For a returning scan of zeros, the delimiter is a previously written one; it and $x$ lie in the shadow's visited interval of at most $j$ cells. Again $k\le j-1$ suffices. Summing over $j$ gives at most $T(T+2)$ steps. The toggle clock is $T+4c\le5T$, where $c$ counts calls. By the [fifth Busy Beaver theorem](https://arxiv.org/abs/2509.12337), $T\le B=47{,}176{,}870$. The two blank-halting cutoffs are therefore $B(B+2)=2{,}225{,}657{,}157{,}350{,}640$ and $5B=235{,}884{,}350$ respectively.
 
-## Finite check on the shadows
+## Blank nonhalting of the five-state shadows
 
 For example, row 14,424,682 of `7x2_holdouts_15743264.txt` has table
 
@@ -41,7 +41,7 @@ The [scan manifest](../data/bb-7-2/restoring-detours/restoring-shadow-crosswalk.
 
 The last column compares exact table strings with [one later public file of 3,050,135 machines](https://drive.google.com/file/d/13D8EkcpcfBjVc_M47KAycUhdIIxbrDIZ/view). The other 532 are absent from that file. The comparison does not establish when each machine was first decided.
 
-## What the reduction transfers to tape languages
+## Regular inseparability and one-counter recognition
 
 Write a tape as a finite word trimmed of exterior zeros, up to translation, with the scanned cell marked by its state. A *separator* contains every word reached from blank and excludes every word from which the machine eventually halts. If all helper calls return on all finite-support tapes, the reached and halting inputs at core boundaries include, respectively, the renamed reached and halting inputs of the shadow. A regular separator of the seven-state machine would restrict to a regular separator of the shadow: intersect with the words marked by core states, then rename those states. A toggle and a scan of ones both satisfy the return hypothesis. A scan of zeros needs a separate argument.
 

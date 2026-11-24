@@ -12,7 +12,7 @@ The sequence here starts from the blank checkpoint and continues by the size rec
 
 For comparison, [Dubickas, Theorem 3](https://doi.org/10.1017/S0017089508004655) gives a linear complexity floor for the digits of rational-base ceiling maps. In the $3/2$ case, [Stephan, Theorem C](https://arxiv.org/abs/2609.19007) gives a superlinear *limsup* conditional on rationality of the associated real growth constant. We need no arithmetic assumption on Bigfoot's growth constant. The proof uses integrality of the sizes at the prime 3 as well as their growth in the ordinary absolute value.
 
-## The four phase words
+## Row offsets as sums of phase labels
 
 Use [Ligocki's six sweep rules and Matthew House's four-sweep table](https://www.sligocki.com/2023/10/16/bb-3-3-is-hard.html#alternative-representation) for the BB(3,3) holdout Bigfoot. Its [7-state binary implementation](https://github.com/sligocki/sligocki.github.io/issues/8#issuecomment-2140920663) has table `0RB1RB_1LC0RA_1RE1LF_1LF1RE_0RD1RD_1LG0LG_---1LB`. The House checkpoint is $B(a,x)=A(a,2x+1,2)$, where $a$ counts the reserve. Blank reaches $B(2,0)$ in 69 ternary steps. Set $p=256$, $q=81$, $\lambda=p/q$, $z=q/p$. Write $x_0=0$ and
 
@@ -32,7 +32,7 @@ $$\sum_{s=0}^3 P_s(m;j,Tm)>Cm \qquad(m\ge m_0,\ 0\le j\le Am). \tag{2}$$
 
 Each phase is a projection of the exact row. Thus (2) at $j=0$, with $C$ arbitrarily large, implies the stated limit for $P(m)$. We do not obtain effective values of $T,m_0$.
 
-## How long can four periodic words agree with the trajectory?
+## Window lengths and the sum of phase periods
 
 Suppose the four phase words on an interval of length $L$ starting at $i$ follow periodic patterns with respective periods $b_s$. Extend those patterns periodically for comparison. At every position let $U$ be the weighted sum of future comparison offsets, with weights $z^k/p$ for offsets $k$ blocks ahead. A single periodic contribution with values $w_0,\ldots,w_{b-1}$ adds the rational number
 
@@ -44,7 +44,7 @@ $$p^L D(x_i+U_0)=q^L D(x_{i+L}+U_L).$$
 
 The positive integer $D(x_i+U_0)$ is therefore divisible by $q^L$. Using $x_i=O(\lambda^i)$ gives $L\le i\log_q\lambda+(\sum b_s)\log_q p+O(1)$. The **sum** of the periods enters here. Using their least common multiple for the period of the joint row could give a much weaker bound.
 
-## What low factor counts would force
+## Power decompositions from Rauzy graphs
 
 Suppose (2) fails, so there are counterexample windows with $m,T\to\infty$. Write $P_s(k)$ for counts within the current window. For $k<m$, $P_s(k)\le P_s(m)+m-k$, since every occurrence except possibly the last $m-k$ starts extends to length $m$. Also $P_s(k+1)-P_s(k)\ge-1$. By averaging the sum of the four differences, choose a common $h\in[\lfloor m/2\rfloor,m-1]$ where each difference is bounded above independently of $m$. Each $P_s(h)$ is $O(h)$.
 
@@ -56,7 +56,7 @@ Between successive nonshort paths, each short component is visited at most once.
 
 Take the union of boundaries in the four tracks, including the end of the window. Write $u_0=0<u_1<\cdots$ relative to the common start $i=j+h$. Between successive union boundaries all tracks are periodic with periods $O(h)$. Since $i=O_A(h)$, the separate-period estimate gives $u_N=O_N(h)$ by induction, for every fixed $N$. Thus the number of pieces in the union tends to infinity, as the window has $Tm-h$ letters remaining. Counting boundaries the other way gives fixed $c>0,c'$ with $u_N/h\ge cN-c'$.
 
-## A sum that is small at 3 and large over the reals
+## Real and 3-adic bounds for the telescoping sum
 
 At boundary $u_l$ let $U_l^-$ and $U_l^+$ be the incoming and outgoing total periodic centers, evaluated at that same position. Each includes the constant $126/(p-q)$ from (1). At the first and last boundaries we need only the indicated side. Telescoping over the intervals gives
 

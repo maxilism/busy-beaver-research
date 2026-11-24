@@ -14,7 +14,7 @@ Reflection gives the same bound for at most one right instruction. The number of
 
 The minimum of the numbers of left and right instructions is called the *laterality number*. [Pavlotskaya (1973), Theorem 4, pp. 905–907](https://www.mathnet.ru/links/8452a9624b6dd1542daf38b98d9461f7/mzm7195.pdf#page=7) ([translation](https://doi.org/10.1007/BF01163965)), proved finite-input halting decidable for a fixed binary machine of laterality one. The reduction to a marking left loop and the distinction between transient and periodic writes on a rightward scan already appear there. See also [Margenstern (1997), pp. 162, 165](https://www.numdam.org/item/ITA_1997__31_2_159_0.pdf). We give explicit running-time estimates uniform over the tables at each state count, on **blank** input.
 
-## The tape at a left turn
+## The marking loop and its pending markers
 
 We can assume the exceptional instruction has the form $q0\to1Lq$: on zero in state $q$, write one, move left and remain in $q$. Here are the other possibilities.
 
@@ -34,7 +34,7 @@ $$
  R_n(M)=4(n+1)(M+2)^2. \tag{1}
 $$
 
-## The scan on ones
+## Halting scans and periodic one-outputs
 
 Run the rightward pass hypothetically on an infinite string of ones. If it halts, it does so within $n$ reads. A marker of age $\ge n+2$ then halts at once in macro time. Store a mask of smaller ages plus one bit for the existence of older markers. While the active age is small its writes, new ages, and shifts into the older set are exact. With no small marker left the bit decides between halt and exhaustion. At most $2^{n+2}$ signatures suffice; a halter cannot repeat one.
 
@@ -117,7 +117,7 @@ $$
  M=(L+1)[(2p+1)H+3]+1. \tag{5}
 $$
 
-## Substitution of the state count
+## Seven-state and asymptotic time bounds
 
 For seven states the terminating unary case uses $M\le2^9$. The periodic one-output case uses $M\le29\cdot2^{62}$. In (4), $(a,c/(a-1),J)=(6,21,27)$, so (1) is at most $32(7\cdot21^7\cdot6^{27})^2<2^{212}$. In (5), $K=58$, $L=2^{58}+1$, $H=72+7L$. Substituting $p=7$ in (5) gives $32(M+2)^2<2^{251}$. The periodic one-output bound gives less than $2^{139}$ by (1), and the easy rows are smaller.
 

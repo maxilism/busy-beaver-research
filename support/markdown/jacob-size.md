@@ -6,7 +6,7 @@ maxilism
 
 [Jacobzheng’s published table and parity rule](https://wiki.bbchallenge.org/w/index.php?title=Cryptids&diff=9600&oldid=9597) describe a BB(7) machine with a growing size and a reserve that can run out. Continue the size recurrence regardless of reserve. At each positive time its value from the blank seed is the **least size obtainable from any positive integer start** in that many iterations. From the fourth iteration on, the *second* least is the blank seed’s next size. A different comparison, with one other size that stays close forever, would give a sufficient condition for the reserve not to run out. No such companion is known for a reached blank checkpoint.
 
-## The two smallest sizes
+## Two least iterates and predecessor depths
 
 The table, written in state order `A` to `G` with one instruction for each bit, is
 
@@ -35,7 +35,7 @@ Two estimates prove these rankings persist. First, $T^t(u)\ge (3/2)^t u$. Second
 
 There is an equivalent way to find the blank sizes. Give each positive integer its *depth*, the number of successive positive predecessors it has under $T$. A predecessor is unique when it exists: $3k$ comes from $2k$, and $3k+2$ comes from $2k-1$ if that is positive. The depth is finite since $T(u)>u$. Row $t$ consists exactly of the positions of depth at least $t$. The start 2 has depth zero, so $y_t$ has depth exactly $t$ and, for $t\ge1$, is the first integer of that depth. For $t\ge4$, every position strictly between $y_t$ and $y_{t+1}$ has depth less than $t$. These records identify the blank sizes, but the ranking does not count their odd terms.
 
-## What a bounded companion would prove
+## A bounded-gap criterion for reserve survival
 
 Suppose the machine reaches size $y$ with at least four units of reserve. **If** some other positive integer $z$ satisfies $\sup_i|T^i(z)-T^i(y)|<\infty$, the machine runs forever from this checkpoint. Here the companion’s own reserve is irrelevant.
 

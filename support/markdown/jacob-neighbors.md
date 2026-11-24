@@ -14,7 +14,7 @@ In state order `A` through `G`, with the zero instruction first, the table is
 
 Keep `E0` undefined. Each of the other 13 entries has 27 alternatives among the 28 choices of bit, direction and next state. This counts labeled tables without identifying symmetries. The original visits every defined entry within the first 44 steps, so every edit changes an instruction actually used from blank. We count *defined* transitions: a run of length $t$ is already facing its first undefined instruction at time $t$.
 
-## How the 351 cases were checked
+## Classification by replay, tape windows and sweeps
 
 | Evidence | Number of edits | Result |
 |---|---:|---|
@@ -28,7 +28,7 @@ We use [Nathan Fenner’s $n$-gram closed position set method](https://github.co
 
 The [classifier](../verification/bb-7-2/jacobzheng/jacob-sphere.py) enumerates the replacements and prints the evidence for each with `python3 jacob-sphere.py --list`. Run it in its source directory alongside `jacob-b0-star.py` and `jacob-turn-check.py`. The [per-entry counts](jacob-derivations.md#neighbor-counts) include the first time each entry is read. The following sweep calculations account for the five cases beyond replay and the closed-window checks.
 
-## The long halter
+## Sweep clock for the `G1` to `0LF` edit
 
 Write $C(n,m)$ for a head in state `C` scanning zero with $1^n0\,1^m$ to its right and blanks elsewhere. Blank reaches $C(3,0)$ after three steps. The [checkpoint sweep](jacob-derivations.md#checkpoint-sweep) consumes $k$ pairs of ones in $3k^2+5k$ steps, leaving $l=3k$ ones to the left of the head. This part of the sweep never uses `G1`.
 
@@ -42,7 +42,7 @@ Change `G1` to `0LF`. On an odd remainder `C0,B1,A0` bring the head to `G1`. It 
 
 Iterating the first two rows from $C(3,0)$ at time 3 reaches $C(1{,}390{,}542{,}348,0)$ after 48 sweeps, at time $1{,}160{,}164{,}811{,}207{,}160{,}354$. Substitution of $k=695{,}271{,}174$ in the last row gives the stated total. This is the longest of the 176 proved halters. There is no time bound here on the three edits equivalent to the original.
 
-## The safe reserve test and the three equivalent edits
+## Positive even reserve and halting-equivalent edits
 
 **`B0` changed to `0RE`.** The [original odd sweep](jacob-derivations.md#checkpoint-sweep) is unchanged: $C(2k+1,m)$ goes to $C(3k+1,m+2)$. On even input with positive even reserve $m=2h$, consume the $k$ pairs. The six instructions `C0,B0,E1,F0,C1,C1` then leave $1^{3k+2}[\mathrm{C}0]1^{2h-1}0$. There are $h-1$ more pairs and an odd exit, producing $C(3(k+h),2)$. The first blank sweep gives $C(4,2)$, so the reserve stays positive and even thereafter.
 
