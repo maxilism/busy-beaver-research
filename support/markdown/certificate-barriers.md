@@ -2,6 +2,8 @@
 
 maxilism
 
+24 November 2026
+
 From blank, Bigfoot reaches a checkpoint with reserve 2 and size 0. If we change only the size to 2916, the reserve still follows the same sequence over the first four sweeps, from 2 through 3, 4, 3, 3. The altered run then attempts four losses without a gain and halts. Whether the blank run halts remains open.
 
 For binary Bigfoot and Jacobzheng’s machine, no context-free language of ordinary marked tapes can contain the blank run and exclude all configurations that eventually halt. The reason is visible at checkpoints described by two integers. Every arithmetic progression of sizes at fixed reserve contains a halting input, yet the size on a surviving blank run grows exponentially in the number of checkpoints. We also give a restriction on **inductive** certificates with arbitrary interval endpoints: if extra reserve is always admitted, the number of size intervals needed at reserve $h$ grows at least linearly in $h$.

@@ -2,6 +2,8 @@
 
 maxilism
 
+24 November 2026
+
 The BB(6) holdout Antihydra has transition table
 
 ```

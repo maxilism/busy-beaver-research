@@ -2,6 +2,8 @@
 
 maxilism
 
+24 November 2026
+
 ## Checkpoint sweep
 
 [Jacobzheng’s original account](https://wiki.bbchallenge.org/w/index.php?title=Cryptids&diff=9600&oldid=9597) gives the parity recurrence from blank. Here is the tape calculation behind it. The [seven-state table](https://wiki.bbchallenge.org/wiki/BB(7)#Cryptids), with instructions for reads `0,1` in each state from `A` to `G`, is

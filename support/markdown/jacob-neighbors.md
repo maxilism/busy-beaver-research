@@ -2,6 +2,8 @@
 
 maxilism
 
+24 November 2026
+
 Among the 351 ways to replace one defined instruction of [Jacobzheng’s machine](https://wiki.bbchallenge.org/wiki/BB(7)#Cryptids) with a different defined instruction, **176 halt from blank, 172 run forever, and three halt exactly when the original does**. One of the halters takes 2,610,370,830,869,531,054 steps. The original blank run remains undecided.
 
 In state order `A` through `G`, with the zero instruction first, the table is

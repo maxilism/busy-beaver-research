@@ -2,6 +2,8 @@
 
 maxilism
 
+24 November 2026
+
 Let a deterministic machine have two working states, a two-way binary tape, and a one-cell move left or right at each nonhalting step. Include the halting instruction in the step count. Suppose the initial head and every nonblank cell lie in an interval of length $L\ge1$. **If the machine halts, the initial interval and the entire head trajectory fit in $W=6L+30$ cells, and it halts within $2W^2+3$ steps.** The order $L^2$ is attained on a family of finite inputs to a single table.
 
 Finite-input decidability is classical. See [Pavlotskaya (1973)](https://doi.org/10.1007/BF01163965) and [Kudlek, *Small deterministic Turing machines* (1996)](https://doi.org/10.1016/S0304-3975(96)00078-3). [Neary and Woods, §3.4](https://arxiv.org/abs/1110.2230), credit K. Wagner (*Elektronische Informationsverarbeitung und Kybernetik* **9**, 1973, 423–431) with an asymptotic linear space bound. We give explicit constants on an ordinary one-dimensional tape. They allow composition with a five-state machine running from blank.

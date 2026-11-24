@@ -2,6 +2,8 @@
 
 maxilism
 
+24 November 2026
+
 Two instruction patterns reduce 721 machines in a [historical BB(7) holdout list](https://drive.google.com/file/d/16gPFf6O5oz-JVFiDq43Hxe2AVTqX4VqX/view) to 33 five-state machines. In the first pattern a pair of helper states repaints a run of arbitrary length and retraces it. In the second, the helpers visit two adjacent cells twice. Deleting the helpers works because the head, tape and state on return agree with those after a single instruction in the reduced machine. All 33 reduced machines run forever from blank. Of the 721 machines, 49 also inherit known obstructions to a regular-language proof of this fact.
 
 ## Deleting two helper states

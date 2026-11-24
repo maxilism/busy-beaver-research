@@ -2,6 +2,8 @@
 
 maxilism
 
+24 November 2026
+
 For a deterministic binary Turing machine let $S_1(n)$ be the maximum blank-tape running time of a halter with $n$ working states and **at most one nonhalting instruction that moves left**. The tape is infinite in both directions. Each ordinary instruction writes a bit and moves one cell, and the attempted undefined instruction counts as one step. Then
 
 $$

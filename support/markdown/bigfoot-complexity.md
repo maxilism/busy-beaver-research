@@ -2,6 +2,8 @@
 
 maxilism
 
+24 November 2026
+
 Group the sweeps of Bigfoot in fours and record which of the 81 exact arithmetic rows each group uses. Several rows give the same net reserve change. How many different words of $m$ consecutive row identities occur in this one sequence? If the number is $P(m)$, then
 
 $$\lim_{m\to\infty}\frac{P(m)}{m}=\infty.$$

@@ -2,6 +2,8 @@
 
 maxilism
 
+24 November 2026
+
 Machine #623 in [Dos Santos et al.'s classification](https://google-deepmind.github.io/cryptids/BusyBeaver/BB6/Hardness/) has table `1RB0LE_0RC1RC_0RD1LA_1LD0LA_1LF1LC_---0LA` and reaches a family of tapes described by two run lengths, $a$ and $d$. Their [certified return map](https://github.com/google-deepmind/cryptids/blob/3647718b5df22e1a61462dec0376bd204526285a/BusyBeaver/BB6/M_1RB0LE_0RC1RC_0RD1LA_1LD0LA_1LF1LC_HHH0LA.lean#L1579-L1621) uses the checkpoint $D(a,d)$: on a blank background the head, in state D, faces the word $(10)^{a+1}0\,1^d$ from the left. The blank computation reaches $D(0,7)$ after 66 machine steps. Here *checkpoint* means this start or a successive output of the certified map `highLevelNext`. Its updates can pass over other raw occurrences of a $D$-shaped tape; the statements below concern only the sampled checkpoints.
 
 An entire region has already been [proved to halt on that return](https://github.com/google-deepmind/cryptids/blob/3647718b5df22e1a61462dec0376bd204526285a/BusyBeaver/BB6/HardnessEvidence.lean#L392-L411): it suffices that $a$ be odd and $a<d+3$. We show that **every checkpoint reached from blank has even $a$**. For even $a$, a return can fail only in the strip

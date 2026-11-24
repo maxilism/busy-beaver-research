@@ -2,6 +2,8 @@
 
 maxilism
 
+24 November 2026
+
 [Jacobzheng’s published table and parity rule](https://wiki.bbchallenge.org/w/index.php?title=Cryptids&diff=9600&oldid=9597) describe a BB(7) machine with a growing size and a reserve that can run out. Continue the size recurrence regardless of reserve. At each positive time its value from the blank seed is the **least size obtainable from any positive integer start** in that many iterations. From the fourth iteration on, the *second* least is the blank seed’s next size. A different comparison, with one other size that stays close forever, would give a sufficient condition for the reserve not to run out. No such companion is known for a reached blank checkpoint.
 
 ## The two smallest sizes

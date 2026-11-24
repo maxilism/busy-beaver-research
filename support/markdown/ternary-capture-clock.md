@@ -2,6 +2,8 @@
 
 maxilism
 
+24 November 2026
+
 Start #758 (`1RB2LC1RC_2LC---2RB_2LA0LB0RA`) in its first state on a blank tape. Count the final undefined instruction as one raw step. Put
 $$
 H=(3^{307}-8282708212)/13959275.

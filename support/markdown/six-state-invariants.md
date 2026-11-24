@@ -2,6 +2,8 @@
 
 maxilism
 
+24 November 2026
+
 For #724, the blank run reaches a checkpoint with counters $(2,4)$. If we start the same return map at $(542,4)$, the second counter grows through $4,13,40,121,364$ while the first decreases at each update by the old value of the second. After four updates the counters are $(364,364)$ and the machine halts. The two starts agree in both counters modulo 6. More generally, fix a checkpoint $(u,v)$ on the blank run with $u,v>0$. For every modulus $m\ge1$ there are halting starts $(u',v')\equiv(u,v)\pmod m$ with $u'/(u'+v')$ arbitrarily close to $u/(u+v)$.
 
 The machines are **#184 and #724** in [Dos Santos et al.'s classification, Problem 4](https://google-deepmind.github.io/cryptids/BusyBeaver/BB6/Hardness/). A *checkpoint* is a tape configuration in the two-counter family at which the published calculation resumes. A *separator* contains every checkpoint visited from blank and no checkpoint from which the machine eventually halts. An inductive invariant certifying blank nonhalting would give such a separator; we do not require the separator itself to be closed under updates.

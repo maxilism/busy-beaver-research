@@ -2,6 +2,8 @@
 
 maxilism
 
+24 November 2026
+
 At its 49th four-sweep checkpoint after initialization, Bigfoot has reserve 27 and size $y=3021335427802676475075229$, and it gains 11 units of reserve over the next 14 blocks. Increase $y$ by $535992208665470815$, less than $1.775\times10^{-7}$ of its value, and leave the reserve at 27. The new configuration loses two units in every block until it attempts its 28th loss on sweep 56 and halts. The four-sweep checkpoint sizes on the blank run increase strictly. The perturbed size falls between the 49th and 50th, so it never occurs at one of these checkpoints.
 
 How large an interval of starting sizes can miss a prescribed word of gains and losses? Specifying $L$ exact rows of Matthew House's four-sweep map gives one congruence class modulo $81^L$. Specifying the reserve changes instead leaves choices of row. For six of the seven possible changes, these choices cut the maximum gap by more than any fixed power of $L$.
