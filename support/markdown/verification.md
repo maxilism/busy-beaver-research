@@ -36,6 +36,8 @@ python3 entry-audit.py returns.bin
 
 ## BB(5)
 
+The [seventeen-machine proof bundle](../verification/bb-5-2/regular-separation/) contains the Lean 4.36.0 classification, the width lower bounds, the finite certificate checks and the seven-state census replay. Its README gives the commands and the hypotheses checked by each program.
+
 The [cubic helix checker](../verification/bb-5-2/cubic-helix/) regenerates the separator automaton, compares it with the supplied transition table and finds an accepted configuration whose successor is rejected. This witness concerns the supplied automaton; the [paper](../../results/bb-5-2/cubic-helix.pdf) rules out every regular inductive separator.
 
 ```sh

@@ -1,0 +1,27 @@
+name = "BB5SeparationReview"
+version = "0.1.0"
+defaultTargets = ["SeventeenClassification", "WidthCases", "PilotCases", "CrossCases"]
+
+[[require]]
+name = "CubicHelix"
+path = "../../formal"
+
+[[lean_lib]]
+name = "ReviewedCases"
+roots = ["BalancedCases", "BalancedCatalog", "BalancedInduction", "BalancedMachine", "Inverter", "InverterCases", "ReviewedCases", "SiblingCases", "SiblingCatalog", "SiblingPaths", "Splice"]
+
+[[lean_lib]]
+name = "PilotCases"
+roots = ["PilotCases", "PilotCorollary", "PilotMachine"]
+
+[[lean_lib]]
+name = "CrossCases"
+roots = ["CrossCases", "CrossInduction", "CrossMachine"]
+
+[[lean_lib]]
+name = "WidthCases"
+roots = ["WidthBalanced", "WidthCases", "WidthCore", "WidthInverter", "WidthSiblings"]
+
+[[lean_lib]]
+name = "SeventeenClassification"
+roots = ["PositiveBlank", "PositiveDFA", "PositiveEscapeExact", "PositiveEscapeWeight", "PositiveSafetyAuto", "PositiveSafetyChecks", "PositiveSafetyConclusion", "PositiveSafetyCore", "PositiveSafetyGap", "PositiveSafetyGapBridge", "PositiveSafetyGapDFA", "PositiveSafetyInclusion", "PositiveSafetyPadding", "PositiveSafetyProjection", "PositiveSafetyResidual", "PositiveWeight", "PositiveWeightCert", "PositiveWeightData", "PositiveWeightRead", "SeventeenClassification"]

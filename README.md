@@ -23,6 +23,7 @@ The [results](results/) use BB(n,k) for n states and k symbols, or BB(n) for bin
 
 | Paper | Result |
 |---|---|
+| [Regular separation for the seventeen weighted BB(5) machines](results/bb-5-2/regular-separation.pdf) | All seventeen lack a regular inductive separator. Only #4817065 admits an ordinary regular separator. For the other sixteen, separation through input span $W$ takes $\Theta(W)$ states. [Lean proofs and replay files](support/verification/bb-5-2/regular-separation/) |
 | [Regular separation for the cubic helix](results/bb-5-2/cubic-helix.pdf) | For machine 4817065, a regular language contains the blank orbit and excludes every configuration that eventually halts. No such regular language is closed under machine steps. [Automaton, proofs, and checks](support/verification/bb-5-2/cubic-helix/) |
 | [The state cost of bounded induction for a five-state cubic helix](results/bb-5-2/cubic-helix-state-complexity.pdf) | For machine 4817065, separating the blank orbit from all eventually halting configurations takes $\Theta(W)$ states for both deterministic and nondeterministic finite automata when step closure is required from every accepted source of span at most $W$. |
 
