@@ -1,4 +1,5 @@
 __pycache__/
 *.pyc
+paper.tex
 /support/verification/bb-3-3/ternary-entry/basin
 /support/verification/bb-3-3/ternary-entry/returns.bin
