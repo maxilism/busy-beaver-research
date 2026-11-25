@@ -17,7 +17,7 @@ The [results](results/) use BB(n,k) for n states and k symbols, or BB(n) for bin
 
 [Bigfoot’s four-sweep return (Lean)](support/verification/bb-3-3/bigfoot/four-sweeps/). A block halts if its signed final reserve is negative. The only other halting blocks start with zero reserve and an original House size congruent to 8, 13, 32 or 37 modulo 81.
 
-[Verification code](support/verification/bb-3-3/)
+[Verification code](support/verification/bb-3-3/) · [Private prime factors of Bigfoot checkpoint sizes](support/markdown/bigfoot-private-primes.md)
 
 ## BB(5)
 
