@@ -35,6 +35,7 @@ The [results](results/) use BB(n,k) for n states and k symbols, or BB(n) for bin
 | [Return rules for #623](results/bb-6-2/six-state-623.pdf) | At each sampled return from blank, a halting inner branch requires the two counters to lie within a logarithmic distance of each other. |
 | [Parents and grandparents of fatal checkpoints for #623](results/bb-6-2/623-predecessor-density.pdf) | For one family of halting targets indexed by even $t$, the parameters admitting a parent under the sampled return map have relative density $1/3$ among even parameters. Among targets with a parent, the lower relative density of those without a grandparent is at least $70/729$. [Source](support/markdown/623-predecessor-density.md) · [Finite checks](support/verification/bb-6-2/623/) |
 | [Halting inputs for Antihydra](results/bb-6-2/antihydra.pdf) | At fixed reserve, every arithmetic progression of sizes contains a subprogression of halting inputs, with an explicit bound on the number of return-map attempts. |
+| [Multiplicative independence in machine 66813](results/bb-6-2/66813-rank.pdf) | Each of the 1,567 digit-map terms in level 1 introduces a prime absent from the earlier terms, so they are multiplicatively independent. [Source](support/markdown/66813-rank.md) · [Finite check](support/verification/bb-6-2/66813/check.py) |
 
 [Finite checks for #184](support/verification/bb-6-2/184/184-check.py)
 
